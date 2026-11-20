@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Создано tools/gen_themes.py - руками не править -->
+<resources>
+
+    <style name="Base.Theme.Klass.Light" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+
+    <style name="Base.Theme.Klass.Dark" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:windowLightNavigationBar">false</item>
+    </style>
+
+    <style name="Theme.Klass.Violet" parent="Base.Theme.Klass.Light">
+        <item name="colorPrimary">#6C4CF1</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#E2DBFC</item>
+        <item name="colorOnPrimaryContainer">#1E1543</item>
+        <item name="colorSecondary">#D6428C</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#F7D9E8</item>
+        <item name="colorOnSecondaryContainer">#3C1227</item>
+        <item name="android:colorBackground">#F8F6FE</item>
+        <item name="colorOnBackground">#0D091D</item>
+        <item name="colorSurface">#FCFBFF</item>
+        <item name="colorOnSurface">#0D091D</item>
+        <item name="colorSurfaceVariant">#EAE6FD</item>
+        <item name="colorOnSurfaceVariant">#261B54</item>
+        <item name="colorOutline">#8881A1</item>
+        <item name="colorOutlineVariant">#DAD2FC</item>
+        <item name="colorSurfaceContainerLow">#FAF9FF</item>
+        <item name="colorSurfaceContainer">#F3F1FE</item>
+        <item name="colorSurfaceContainerHigh">#EFEBFD</item>
+        <item name="colorSurfaceContainerHighest">#EAE6FD</item>
+        <item name="android:statusBarColor">#F8F6FE</item>
+        <item name="android:navigationBarColor">#F3F1FE</item>
+        <item name="android:windowBackground">#F8F6FE</item>
+    </style>
+
+    <style name="Theme.Klass.Ocean" parent="Base.Theme.Klass.Light">
+        <item name="colorPrimary">#0A7EA4</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#CEE5ED</item>
+        <item name="colorOnPrimaryContainer">#03232E</item>
+        <item name="colorSecondary">#00897B</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#CCE7E5</item>
+        <item name="colorOnSecondaryContainer">#002622</item>
+        <item name="android:colorBackground">#F3F9FA</item>
+        <item name="colorOnBackground">#010F14</item>
+        <item name="colorSurface">#FAFCFD</item>
+        <item name="colorOnSurface">#010F14</item>
+        <item name="colorSurfaceVariant">#DDEDF2</item>
+        <item name="colorOnSurfaceVariant">#042C39</item>
+        <item name="colorOutline">#758B92</item>
+        <item name="colorOutlineVariant">#C2DFE8</item>
+        <item name="colorSurfaceContainerLow">#F6FAFC</item>
+        <item name="colorSurfaceContainer">#EBF5F8</item>
+        <item name="colorSurfaceContainerHigh">#E4F1F5</item>
+        <item name="colorSurfaceContainerHighest">#DDEDF2</item>
+        <item name="android:statusBarColor">#F3F9FA</item>
+        <item name="android:navigationBarColor">#EBF5F8</item>
+        <item name="android:windowBackground">#F3F9FA</item>
+    </style>
+
+    <style name="Theme.Klass.Mint" parent="Base.Theme.Klass.Light">
+        <item name="colorPrimary">#1A8F6E</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#D1E9E2</item>
+        <item name="colorOnPrimaryContainer">#07281F</item>
+        <item name="colorSecondary">#5C8D3A</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#DEE8D8</item>
+        <item name="colorOnSecondaryContainer">#1A2710</item>
+        <item name="android:colorBackground">#F4F9F8</item>
+        <item name="colorOnBackground">#03110D</item>
+        <item name="colorSurface">#FAFDFC</item>
+        <item name="colorOnSurface">#03110D</item>
+        <item name="colorSurfaceVariant">#DFEFEB</item>
+        <item name="colorOnSurfaceVariant">#093226</item>
+        <item name="colorOutline">#788E88</item>
+        <item name="colorOutlineVariant">#C6E3DB</item>
+        <item name="colorSurfaceContainerLow">#F7FBFA</item>
+        <item name="colorSurfaceContainer">#EDF6F3</item>
+        <item name="colorSurfaceContainerHigh">#E6F3EF</item>
+        <item name="colorSurfaceContainerHighest">#DFEFEB</item>
+        <item name="android:statusBarColor">#F4F9F8</item>
+        <item name="android:navigationBarColor">#EDF6F3</item>
+        <item name="android:windowBackground">#F4F9F8</item>
+    </style>
+
+    <style name="Theme.Klass.Sunset" parent="Base.Theme.Klass.Light">
+        <item name="colorPrimary">#D9561A</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#F7DDD1</item>
+        <item name="colorOnPrimaryContainer">#3D1807</item>
+        <item name="colorSecondary">#C2306A</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#F3D6E1</item>
+        <item name="colorOnSecondaryContainer">#360D1E</item>
+        <item name="android:colorBackground">#FDF7F4</item>
+        <item name="colorOnBackground">#1A0A03</item>
+        <item name="colorSurface">#FEFCFA</item>
+        <item name="colorOnSurface">#1A0A03</item>
+        <item name="colorSurfaceVariant">#FAE7DF</item>
+        <item name="colorOnSurfaceVariant">#4C1E09</item>
+        <item name="colorOutline">#9D8378</item>
+        <item name="colorOutlineVariant">#F6D5C6</item>
+        <item name="colorSurfaceContainerLow">#FEF9F7</item>
+        <item name="colorSurfaceContainer">#FCF1ED</item>
+        <item name="colorSurfaceContainerHigh">#FBECE6</item>
+        <item name="colorSurfaceContainerHighest">#FAE7DF</item>
+        <item name="android:statusBarColor">#FDF7F4</item>
+        <item name="android:navigationBarColor">#FCF1ED</item>
+        <item name="android:windowBackground">#FDF7F4</item>
+    </style>
+
+    <style name="Theme.Klass.Rose" parent="Base.Theme.Klass.Light">
+        <item name="colorPrimary">#D83A74</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#F7D8E3</item>
+        <item name="colorOnPrimaryContainer">#3C1020</item>
+        <item name="colorSecondary">#7F52C8</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#E5DCF4</item>
+        <item name="colorOnSecondaryContainer">#241738</item>
+        <item name="android:colorBackground">#FDF5F8</item>
+        <item name="colorOnBackground">#1A070E</item>
+        <item name="colorSurface">#FEFBFC</item>
+        <item name="colorOnSurface">#1A070E</item>
+        <item name="colorSurfaceVariant">#FAE3EC</item>
+        <item name="colorOnSurfaceVariant">#4C1429</item>
+        <item name="colorOutline">#9C7E89</item>
+        <item name="colorOutlineVariant">#F5CEDC</item>
+        <item name="colorSurfaceContainerLow">#FEF8FA</item>
+        <item name="colorSurfaceContainer">#FCEFF4</item>
+        <item name="colorSurfaceContainerHigh">#FBE9F0</item>
+        <item name="colorSurfaceContainerHighest">#FAE3EC</item>
+        <item name="android:statusBarColor">#FDF5F8</item>
+        <item name="android:navigationBarColor">#FCEFF4</item>
+        <item name="android:windowBackground">#FDF5F8</item>
+    </style>
+
+    <style name="Theme.Klass.Lavender" parent="Base.Theme.Klass.Light">
+        <item name="colorPrimary">#8559D6</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#E7DEF7</item>
+        <item name="colorOnPrimaryContainer">#25193C</item>
+        <item name="colorSecondary">#3F8FD2</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#D9E9F6</item>
+        <item name="colorOnSecondaryContainer">#12283B</item>
+        <item name="android:colorBackground">#F9F7FD</item>
+        <item name="colorOnBackground">#100B1A</item>
+        <item name="colorSurface">#FDFCFE</item>
+        <item name="colorOnSurface">#100B1A</item>
+        <item name="colorSurfaceVariant">#EEE8F9</item>
+        <item name="colorOnSurfaceVariant">#2F1F4B</item>
+        <item name="colorOutline">#8C849C</item>
+        <item name="colorOutlineVariant">#E0D6F5</item>
+        <item name="colorSurfaceContainerLow">#FBF9FE</item>
+        <item name="colorSurfaceContainer">#F5F2FC</item>
+        <item name="colorSurfaceContainerHigh">#F2EDFA</item>
+        <item name="colorSurfaceContainerHighest">#EEE8F9</item>
+        <item name="android:statusBarColor">#F9F7FD</item>
+        <item name="android:navigationBarColor">#F5F2FC</item>
+        <item name="android:windowBackground">#F9F7FD</item>
+    </style>
+
+    <style name="Theme.Klass.Lemon" parent="Base.Theme.Klass.Light">
+        <item name="colorPrimary">#8A7A00</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#E8E4CC</item>
+        <item name="colorOnPrimaryContainer">#272200</item>
+        <item name="colorSecondary">#2E7D32</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#D5E5D6</item>
+        <item name="colorOnSecondaryContainer">#0D230E</item>
+        <item name="android:colorBackground">#F9F8F2</item>
+        <item name="colorOnBackground">#110F00</item>
+        <item name="colorSurface">#FDFCFA</item>
+        <item name="colorOnSurface">#110F00</item>
+        <item name="colorSurfaceVariant">#EFECDB</item>
+        <item name="colorOnSurfaceVariant">#302B00</item>
+        <item name="colorOutline">#8D8A73</item>
+        <item name="colorOutlineVariant">#E2DEBF</item>
+        <item name="colorSurfaceContainerLow">#FBFAF6</item>
+        <item name="colorSurfaceContainer">#F6F4EB</item>
+        <item name="colorSurfaceContainerHigh">#F2F0E3</item>
+        <item name="colorSurfaceContainerHighest">#EFECDB</item>
+        <item name="android:statusBarColor">#F9F8F2</item>
+        <item name="android:navigationBarColor">#F6F4EB</item>
+        <item name="android:windowBackground">#F9F8F2</item>
+    </style>
+
+    <style name="Theme.Klass.Cherry" parent="Base.Theme.Klass.Light">
+        <item name="colorPrimary">#B3203A</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#F0D2D8</item>
+        <item name="colorOnPrimaryContainer">#320910</item>
+        <item name="colorSecondary">#E0733A</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#F9E3D8</item>
+        <item name="colorOnSecondaryContainer">#3F2010</item>
+        <item name="android:colorBackground">#FBF4F5</item>
+        <item name="colorOnBackground">#150407</item>
+        <item name="colorSurface">#FDFBFB</item>
+        <item name="colorOnSurface">#150407</item>
+        <item name="colorSurfaceVariant">#F4E0E3</item>
+        <item name="colorOnSurfaceVariant">#3F0B14</item>
+        <item name="colorOutline">#95797E</item>
+        <item name="colorOutlineVariant">#ECC7CE</item>
+        <item name="colorSurfaceContainerLow">#FCF7F8</item>
+        <item name="colorSurfaceContainer">#F9EDEF</item>
+        <item name="colorSurfaceContainerHigh">#F7E6E9</item>
+        <item name="colorSurfaceContainerHighest">#F4E0E3</item>
+        <item name="android:statusBarColor">#FBF4F5</item>
+        <item name="android:navigationBarColor">#F9EDEF</item>
+        <item name="android:windowBackground">#FBF4F5</item>
+    </style>
+
+    <style name="Theme.Klass.Turquoise" parent="Base.Theme.Klass.Light">
+        <item name="colorPrimary">#00838F</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#CCE6E9</item>
+        <item name="colorOnPrimaryContainer">#002528</item>
+        <item name="colorSecondary">#5E35B1</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#DFD7EF</item>
+        <item name="colorOnSecondaryContainer">#1A0F32</item>
+        <item name="android:colorBackground">#F2F9F9</item>
+        <item name="colorOnBackground">#001011</item>
+        <item name="colorSurface">#FAFDFD</item>
+        <item name="colorOnSurface">#001011</item>
+        <item name="colorSurfaceVariant">#DBEEEF</item>
+        <item name="colorOnSurfaceVariant">#002E32</item>
+        <item name="colorOutline">#738C8E</item>
+        <item name="colorOutlineVariant">#BFE0E3</item>
+        <item name="colorSurfaceContainerLow">#F6FBFB</item>
+        <item name="colorSurfaceContainer">#EBF5F6</item>
+        <item name="colorSurfaceContainerHigh">#E3F1F3</item>
+        <item name="colorSurfaceContainerHighest">#DBEEEF</item>
+        <item name="android:statusBarColor">#F2F9F9</item>
+        <item name="android:navigationBarColor">#EBF5F6</item>
+        <item name="android:windowBackground">#F2F9F9</item>
+    </style>
+
+    <style name="Theme.Klass.Emerald" parent="Base.Theme.Klass.Light">
+        <item name="colorPrimary">#2E7D32</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#D5E5D6</item>
+        <item name="colorOnPrimaryContainer">#0D230E</item>
+        <item name="colorSecondary">#00838F</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#CCE6E9</item>
+        <item name="colorOnSecondaryContainer">#002528</item>
+        <item name="android:colorBackground">#F5F8F5</item>
+        <item name="colorOnBackground">#060F06</item>
+        <item name="colorSurface">#FBFCFB</item>
+        <item name="colorOnSurface">#060F06</item>
+        <item name="colorSurfaceVariant">#E2EDE2</item>
+        <item name="colorOnSurfaceVariant">#102C12</item>
+        <item name="colorOutline">#7C8B7C</item>
+        <item name="colorOutlineVariant">#CBDECC</item>
+        <item name="colorSurfaceContainerLow">#F8FAF8</item>
+        <item name="colorSurfaceContainer">#EEF5EF</item>
+        <item name="colorSurfaceContainerHigh">#E8F1E8</item>
+        <item name="colorSurfaceContainerHighest">#E2EDE2</item>
+        <item name="android:statusBarColor">#F5F8F5</item>
+        <item name="android:navigationBarColor">#EEF5EF</item>
+        <item name="android:windowBackground">#F5F8F5</item>
+    </style>
+
+    <style name="Theme.Klass.Raspberry" parent="Base.Theme.Klass.Light">
+        <item name="colorPrimary">#AD1457</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#EFD0DD</item>
+        <item name="colorOnPrimaryContainer">#300618</item>
+        <item name="colorSecondary">#6A1B9A</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#E1D1EB</item>
+        <item name="colorOnSecondaryContainer">#1E082B</item>
+        <item name="android:colorBackground">#FBF3F7</item>
+        <item name="colorOnBackground">#15020A</item>
+        <item name="colorSurface">#FDFAFC</item>
+        <item name="colorOnSurface">#15020A</item>
+        <item name="colorSurfaceVariant">#F4DEE7</item>
+        <item name="colorOnSurfaceVariant">#3D071E</item>
+        <item name="colorOutline">#947783</item>
+        <item name="colorOutlineVariant">#EAC4D5</item>
+        <item name="colorSurfaceContainerLow">#FCF7F9</item>
+        <item name="colorSurfaceContainer">#F8ECF2</item>
+        <item name="colorSurfaceContainerHigh">#F6E5ED</item>
+        <item name="colorSurfaceContainerHighest">#F4DEE7</item>
+        <item name="android:statusBarColor">#FBF3F7</item>
+        <item name="android:navigationBarColor">#F8ECF2</item>
+        <item name="android:windowBackground">#FBF3F7</item>
+    </style>
+
+    <style name="Theme.Klass.Caramel" parent="Base.Theme.Klass.Light">
+        <item name="colorPrimary">#8D5524</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#E8DDD3</item>
+        <item name="colorOnPrimaryContainer">#27180A</item>
+        <item name="colorSecondary">#D4851F</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#F6E7D2</item>
+        <item name="colorOnSecondaryContainer">#3B2509</item>
+        <item name="android:colorBackground">#F9F6F4</item>
+        <item name="colorOnBackground">#110A04</item>
+        <item name="colorSurface">#FDFCFB</item>
+        <item name="colorOnSurface">#110A04</item>
+        <item name="colorSurfaceVariant">#EFE7E0</item>
+        <item name="colorOnSurfaceVariant">#311E0D</item>
+        <item name="colorOutline">#8E837A</item>
+        <item name="colorOutlineVariant">#E2D4C8</item>
+        <item name="colorSurfaceContainerLow">#FBF9F7</item>
+        <item name="colorSurfaceContainer">#F6F1ED</item>
+        <item name="colorSurfaceContainerHigh">#F2ECE7</item>
+        <item name="colorSurfaceContainerHighest">#EFE7E0</item>
+        <item name="android:statusBarColor">#F9F6F4</item>
+        <item name="android:navigationBarColor">#F6F1ED</item>
+        <item name="android:windowBackground">#F9F6F4</item>
+    </style>
+
+    <style name="Theme.Klass.Sky" parent="Base.Theme.Klass.Light">
+        <item name="colorPrimary">#1E6FD9</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#D2E2F7</item>
+        <item name="colorOnPrimaryContainer">#081F3D</item>
+        <item name="colorSecondary">#00ACC1</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#CCEEF3</item>
+        <item name="colorOnSecondaryContainer">#003036</item>
+        <item name="android:colorBackground">#F4F8FD</item>
+        <item name="colorOnBackground">#040D1A</item>
+        <item name="colorSurface">#FAFCFE</item>
+        <item name="colorOnSurface">#040D1A</item>
+        <item name="colorSurfaceVariant">#DFEBFA</item>
+        <item name="colorOnSurfaceVariant">#0A274C</item>
+        <item name="colorOutline">#79889D</item>
+        <item name="colorOutlineVariant">#C7DBF6</item>
+        <item name="colorSurfaceContainerLow">#F7FAFE</item>
+        <item name="colorSurfaceContainer">#EDF3FC</item>
+        <item name="colorSurfaceContainerHigh">#E6EFFB</item>
+        <item name="colorSurfaceContainerHighest">#DFEBFA</item>
+        <item name="android:statusBarColor">#F4F8FD</item>
+        <item name="android:navigationBarColor">#EDF3FC</item>
+        <item name="android:windowBackground">#F4F8FD</item>
+    </style>
+
+    <style name="Theme.Klass.Sakura" parent="Base.Theme.Klass.Light">
+        <item name="colorPrimary">#C2557A</item>
+        <item name="colorOnPrimary">#FFFFFF</item>
+        <item name="colorPrimaryContainer">#F3DDE4</item>
+        <item name="colorOnPrimaryContainer">#361822</item>
+        <item name="colorSecondary">#7E57C2</item>
+        <item name="colorOnSecondary">#FFFFFF</item>
+        <item name="colorSecondaryContainer">#E5DDF3</item>
+        <item name="colorOnSecondaryContainer">#231836</item>
+        <item name="android:colorBackground">#FCF6F8</item>
+        <item name="colorOnBackground">#170A0F</item>
+        <item name="colorSurface">#FEFCFC</item>
+        <item name="colorOnSurface">#170A0F</item>
+        <item name="colorSurfaceVariant">#F6E7EC</item>
+        <item name="colorOnSurfaceVariant">#441E2B</item>
+        <item name="colorOutline">#98838A</item>
+        <item name="colorOutlineVariant">#F0D4DE</item>
+        <item name="colorSurfaceContainerLow">#FDF9FA</item>
+        <item name="colorSurfaceContainer">#FAF1F4</item>
+        <item name="colorSurfaceContainerHigh">#F8ECF0</item>
+        <item name="colorSurfaceContainerHighest">#F6E7EC</item>
+        <item name="android:statusBarColor">#FCF6F8</item>
+        <item name="android:navigationBarColor">#FAF1F4</item>
+        <item name="android:windowBackground">#FCF6F8</item>
+    </style>
+
+    <style name="Theme.Klass.Midnight" parent="Base.Theme.Klass.Dark">
+        <item name="colorPrimary">#B9A6FF</item>
+        <item name="colorOnPrimary">#211E2E</item>
+        <item name="colorPrimaryContainer">#534B73</item>
+        <item name="colorOnPrimaryContainer">#F0EBFF</item>
+        <item name="colorSecondary">#FFB0D2</item>
+        <item name="colorOnSecondary">#2E2026</item>
+        <item name="colorSecondaryContainer">#734F5E</item>
+        <item name="colorOnSecondaryContainer">#FFEEF5</item>
+        <item name="android:colorBackground">#0D0C12</item>
+        <item name="colorOnBackground">#F7F4FF</item>
+        <item name="colorSurface">#110F17</item>
+        <item name="colorOnSurface">#F7F4FF</item>
+        <item name="colorSurfaceVariant">#252133</item>
+        <item name="colorOnSurfaceVariant">#EAE4FF</item>
+        <item name="colorOutline">#B0ABC0</item>
+        <item name="colorOutlineVariant">#342E47</item>
+        <item name="colorSurfaceContainerLow">#121119</item>
+        <item name="colorSurfaceContainer">#181621</item>
+        <item name="colorSurfaceContainerHigh">#1F1C2B</item>
+        <item name="colorSurfaceContainerHighest">#272336</item>
+        <item name="android:statusBarColor">#0D0C12</item>
+        <item name="android:navigationBarColor">#181621</item>
+        <item name="android:windowBackground">#0D0C12</item>
+    </style>
+
+    <style name="Theme.Klass.Cosmos" parent="Base.Theme.Klass.Dark">
+        <item name="colorPrimary">#7FB2FF</item>
+        <item name="colorOnPrimary">#17202E</item>
+        <item name="colorPrimaryContainer">#395073</item>
+        <item name="colorOnPrimaryContainer">#E3EEFF</item>
+        <item name="colorSecondary">#C9A3FF</item>
+        <item name="colorOnSecondary">#241D2E</item>
+        <item name="colorSecondaryContainer">#5A4973</item>
+        <item name="colorOnSecondaryContainer">#F3EBFF</item>
+        <item name="android:colorBackground">#090C12</item>
+        <item name="colorOnBackground">#F0F6FF</item>
+        <item name="colorSurface">#0B1017</item>
+        <item name="colorOnSurface">#F0F6FF</item>
+        <item name="colorSurfaceVariant">#192433</item>
+        <item name="colorOnSurfaceVariant">#D9E8FF</item>
+        <item name="colorOutline">#A3AEC0</item>
+        <item name="colorOutlineVariant">#243247</item>
+        <item name="colorSurfaceContainerLow">#0D1219</item>
+        <item name="colorSurfaceContainer">#111721</item>
+        <item name="colorSurfaceContainerHigh">#161E2B</item>
+        <item name="colorSurfaceContainerHighest">#1B2536</item>
+        <item name="android:statusBarColor">#090C12</item>
+        <item name="android:navigationBarColor">#111721</item>
+        <item name="android:windowBackground">#090C12</item>
+    </style>
+
+    <style name="Theme.Klass.Neon" parent="Base.Theme.Klass.Dark">
+        <item name="colorPrimary">#39E6A0</item>
+        <item name="colorOnPrimary">#0A291D</item>
+        <item name="colorPrimaryContainer">#1A6748</item>
+        <item name="colorOnPrimaryContainer">#D3FAEA</item>
+        <item name="colorSecondary">#FF5FA2</item>
+        <item name="colorOnSecondary">#2E111D</item>
+        <item name="colorSecondaryContainer">#732B49</item>
+        <item name="colorOnSecondaryContainer">#FFDCEB</item>
+        <item name="android:colorBackground">#04100B</item>
+        <item name="colorOnBackground">#E7FCF4</item>
+        <item name="colorSurface">#05150E</item>
+        <item name="colorOnSurface">#E7FCF4</item>
+        <item name="colorSurfaceVariant">#0B2E20</item>
+        <item name="colorOnSurfaceVariant">#C4F8E2</item>
+        <item name="colorOutline">#93BAAA</item>
+        <item name="colorOutlineVariant">#10402D</item>
+        <item name="colorSurfaceContainerLow">#061710</item>
+        <item name="colorSurfaceContainer">#071E15</item>
+        <item name="colorSurfaceContainerHigh">#0A271B</item>
+        <item name="colorSurfaceContainerHighest">#0C3022</item>
+        <item name="android:statusBarColor">#04100B</item>
+        <item name="android:navigationBarColor">#071E15</item>
+        <item name="android:windowBackground">#04100B</item>
+    </style>
+
+    <style name="Theme.Klass.Coal" parent="Base.Theme.Klass.Dark">
+        <item name="colorPrimary">#E0E0E0</item>
+        <item name="colorOnPrimary">#282828</item>
+        <item name="colorPrimaryContainer">#656565</item>
+        <item name="colorOnPrimaryContainer">#F8F8F8</item>
+        <item name="colorSecondary">#FFB74D</item>
+        <item name="colorOnSecondary">#2E210E</item>
+        <item name="colorSecondaryContainer">#735223</item>
+        <item name="colorOnSecondaryContainer">#FFEFD8</item>
+        <item name="android:colorBackground">#101010</item>
+        <item name="colorOnBackground">#FBFBFB</item>
+        <item name="colorSurface">#141414</item>
+        <item name="colorOnSurface">#FBFBFB</item>
+        <item name="colorSurfaceVariant">#2D2D2D</item>
+        <item name="colorOnSurfaceVariant">#F6F6F6</item>
+        <item name="colorOutline">#B9B9B9</item>
+        <item name="colorOutlineVariant">#3F3F3F</item>
+        <item name="colorSurfaceContainerLow">#161616</item>
+        <item name="colorSurfaceContainer">#1D1D1D</item>
+        <item name="colorSurfaceContainerHigh">#262626</item>
+        <item name="colorSurfaceContainerHighest">#2F2F2F</item>
+        <item name="android:statusBarColor">#101010</item>
+        <item name="android:navigationBarColor">#1D1D1D</item>
+        <item name="android:windowBackground">#101010</item>
+    </style>
+
+    <style name="Theme.Klass.Bordeaux" parent="Base.Theme.Klass.Dark">
+        <item name="colorPrimary">#FF8FA3</item>
+        <item name="colorOnPrimary">#2E1A1D</item>
+        <item name="colorPrimaryContainer">#734049</item>
+        <item name="colorOnPrimaryContainer">#FFE6EB</item>
+        <item name="colorSecondary">#FFCC80</item>
+        <item name="colorOnSecondary">#2E2517</item>
+        <item name="colorSecondaryContainer">#735C3A</item>
+        <item name="colorOnSecondaryContainer">#FFF4E3</item>
+        <item name="android:colorBackground">#120A0B</item>
+        <item name="colorOnBackground">#FFF2F4</item>
+        <item name="colorSurface">#170D0F</item>
+        <item name="colorOnSurface">#FFF2F4</item>
+        <item name="colorSurfaceVariant">#331D21</item>
+        <item name="colorOnSurfaceVariant">#FFDDE3</item>
+        <item name="colorOutline">#C0A6AB</item>
+        <item name="colorOutlineVariant">#47282E</item>
+        <item name="colorSurfaceContainerLow">#190E10</item>
+        <item name="colorSurfaceContainer">#211315</item>
+        <item name="colorSurfaceContainerHigh">#2B181C</item>
+        <item name="colorSurfaceContainerHighest">#361E22</item>
+        <item name="android:statusBarColor">#120A0B</item>
+        <item name="android:navigationBarColor">#211315</item>
+        <item name="android:windowBackground">#120A0B</item>
+    </style>
+
+    <style name="Theme.Klass.Forest" parent="Base.Theme.Klass.Dark">
+        <item name="colorPrimary">#8FD18F</item>
+        <item name="colorOnPrimary">#1A261A</item>
+        <item name="colorPrimaryContainer">#405E40</item>
+        <item name="colorOnPrimaryContainer">#E6F5E6</item>
+        <item name="colorSecondary">#E6CF8A</item>
+        <item name="colorOnSecondary">#292519</item>
+        <item name="colorSecondaryContainer">#675D3E</item>
+        <item name="colorOnSecondaryContainer">#FAF4E5</item>
+        <item name="android:colorBackground">#0A0F0A</item>
+        <item name="colorOnBackground">#F2F9F2</item>
+        <item name="colorSurface">#0D130D</item>
+        <item name="colorOnSurface">#F2F9F2</item>
+        <item name="colorSurfaceVariant">#1D2A1D</item>
+        <item name="colorOnSurfaceVariant">#DDF1DD</item>
+        <item name="colorOutline">#A6B5A6</item>
+        <item name="colorOutlineVariant">#283B28</item>
+        <item name="colorSurfaceContainerLow">#0E150E</item>
+        <item name="colorSurfaceContainer">#131B13</item>
+        <item name="colorSurfaceContainerHigh">#182418</item>
+        <item name="colorSurfaceContainerHighest">#1E2C1E</item>
+        <item name="android:statusBarColor">#0A0F0A</item>
+        <item name="android:navigationBarColor">#131B13</item>
+        <item name="android:windowBackground">#0A0F0A</item>
+    </style>
+
+</resources>

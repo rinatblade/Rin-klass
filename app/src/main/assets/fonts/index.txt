@@ -1,0 +1,8 @@
+inter_black.otf|Мем — жирный плакат|0
+lora.ttf|Классика — книжная|700
+dejavu_serif_bold.ttf|Книжный — жирная антиква|0
+liberation_serif_bolditalic.ttf|Курсив — газетный|0
+dejavu_mono_bold.ttf|Печатная машинка|0
+dejavu_condensed_bold.ttf|Узкий — жирный|0
+carlito_bold.ttf|Мягкий — округлый|0
+liberation_sans_bolditalic.ttf|Наклонный — для надписей|0

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp" android:viewportWidth="108" android:viewportHeight="108">
+    <!-- уголки «рамки выделения» вокруг подарка -->
+    <path android:pathData="M32,42v-10h10 M66,32h10v10 M32,66v10h10 M76,66v10h-10"
+        android:strokeColor="#FFFFFFFF" android:strokeWidth="3.5" android:strokeLineCap="round" android:strokeLineJoin="round" />
+    <!-- подарок -->
+    <path android:fillColor="#FFFFFFFF" android:pathData="M40,54h28v16h-28z" />
+    <path android:fillColor="#FFFFE0F0" android:pathData="M38,46h32v8h-32z" />
+    <path android:fillColor="#FFFF4FA3" android:pathData="M52,46h4v24h-4z" />
+    <path android:fillColor="#FFFFE0F0" android:pathData="M54,46c-1,-8 -10,-9 -9,-3c1,3 6,3 9,3z M54,46c1,-8 10,-9 9,-3c-1,3 -6,3 -9,3z" />
+</vector>
