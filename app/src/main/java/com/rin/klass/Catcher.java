@@ -29,6 +29,12 @@ final class Catcher {
 
         /** Вызывается из фонового потока. */
         void saved(GiftStore.Gift g, boolean isNew, String url);
+
+        /** Страница просит записать область экрана (координаты в CSS-пикселях окна страницы). */
+        void startRecord(double left, double top, double width, double height, double dpr);
+
+        /** Ручной режим записи завершён (выбрана область). */
+        void pickModeOff();
     }
 
     private static final int YES = 1;
@@ -182,6 +188,25 @@ final class Catcher {
         @JavascriptInterface
         public void probe(String url, String page) {
             Catcher.this.probe(url, page);
+        }
+
+        @JavascriptInterface
+        public void record(double l, double t, double w, double h, double dpr) {
+            if (host.onOkPage()) {
+                host.startRecord(l, t, w, h, dpr);
+            }
+        }
+
+        @JavascriptInterface
+        public void pickModeOff() {
+            host.pickModeOff();
+        }
+
+        @JavascriptInterface
+        public void log(String s) {
+            if (s != null && s.length() < 300) {
+                Diag.log("На странице: " + s);
+            }
         }
 
         @JavascriptInterface

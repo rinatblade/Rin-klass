@@ -39,6 +39,14 @@
             android:contentDescription="На главную"
             android:src="@drawable/ic_home" />
 
+        <ImageButton
+            android:id="@+id/btnRec"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Записать анимацию"
+            android:src="@drawable/ic_record" />
+
         <TextView
             android:id="@+id/pageTitle"
             android:layout_width="0dp"

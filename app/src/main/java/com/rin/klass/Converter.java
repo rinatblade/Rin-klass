@@ -102,6 +102,15 @@ final class Converter {
         return p;
     }
 
+    /** Готовые кадры (например, запись экрана) в GIF. */
+    static byte[] framesToGif(List<Bitmap> frames, List<Integer> delays) throws IOException {
+        GifOut out = new GifOut(480);
+        for (int i = 0; i < frames.size(); i++) {
+            out.add(frames.get(i), Math.max(20, delays.get(i)));
+        }
+        return out.finish();
+    }
+
     // ------------------------------------------------------------------ WebP
 
     private static byte[] webpToGif(byte[] data) throws IOException {

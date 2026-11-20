@@ -176,6 +176,52 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Запись -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:cardBackgroundColor="?attr/colorSurfaceContainer"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="0dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Запись анимаций"
+                    android:textAppearance="?attr/textAppearanceTitleMedium"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="Если подарок не скачивается как файл, его можно записать с экрана: фиолетовая рамка «записать» на странице или кнопка ⏺ вверху — нажмите на анимацию дважды."
+                    android:textSize="13sp" />
+
+                <com.google.android.material.materialswitch.MaterialSwitch
+                    android:id="@+id/swRecBg"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Убирать однотонный фон" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnRecMs"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Длительность записи" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
         <!-- Прочее -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"

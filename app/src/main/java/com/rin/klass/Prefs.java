@@ -48,6 +48,24 @@ public final class Prefs {
         raw(c).edit().putString("font", file).apply();
     }
 
+    /** Сколько миллисекунд записывать анимацию при записи экрана. */
+    public static int recMs(Context c) {
+        return raw(c).getInt("recMs", 4000);
+    }
+
+    public static void setRecMs(Context c, int ms) {
+        raw(c).edit().putInt("recMs", ms).apply();
+    }
+
+    /** Убирать однотонный фон у записанных анимаций. */
+    public static boolean recBg(Context c) {
+        return raw(c).getBoolean("recBg", true);
+    }
+
+    public static void setRecBg(Context c, boolean on) {
+        raw(c).edit().putBoolean("recBg", on).apply();
+    }
+
     public static String publisher(Context c) {
         return raw(c).getString("publisher", "Rin-klass");
     }

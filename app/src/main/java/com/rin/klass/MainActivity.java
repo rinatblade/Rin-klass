@@ -102,6 +102,9 @@ public class MainActivity extends AppCompatActivity implements Catcher.Host {
     private MaterialSwitch swCatcher;
     private MaterialSwitch swCatcher2;
     private boolean syncing = false;
+    private boolean recording = false;
+    private boolean pickMode = false;
+    private ImageButton btnRec;
 
     // подарки
     private RecyclerView giftsGrid;
@@ -291,6 +294,7 @@ public class MainActivity extends AppCompatActivity implements Catcher.Host {
         hintPill = findViewById(R.id.hintPill);
         swCatcher = findViewById(R.id.swCatcher);
 
+        btnRec = findViewById(R.id.btnRec);
         int[] btns = {R.id.btnBack, R.id.btnReload, R.id.btnHome};
         for (int b : btns) {
             ImageViewCompat.setImageTintList((ImageButton) findViewById(b),
@@ -314,6 +318,20 @@ public class MainActivity extends AppCompatActivity implements Catcher.Host {
             @Override
             public void onClick(View v) {
                 web.loadUrl("https://ok.ru/");
+            }
+        });
+
+        btnRec.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setPickMode(!pickMode);
+            }
+        });
+        // пока идёт запись, страницу трогать нельзя - иначе в кадр попадёт прокрутка
+        web.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, android.view.MotionEvent e) {
+                return recording;
             }
         });
 
@@ -438,8 +456,34 @@ public class MainActivity extends AppCompatActivity implements Catcher.Host {
     }
 
     private void injectCatcher() {
-        if (Prefs.catcherOn(this) && okPage && !catcherJs.isEmpty()) {
+        if (okPage && !catcherJs.isEmpty()) {
             web.evaluateJavascript(catcherJs, null);
+            web.evaluateJavascript("window.__klass&&window.__klass.setOn(" + Prefs.catcherOn(this) + ")", null);
+            if (pickMode) {
+                web.evaluateJavascript("window.__klass&&window.__klass.pickMode(true)", null);
+            }
+        }
+    }
+
+    private void setPickMode(boolean on) {
+        if (on && !okPage) {
+            U.toast(this, "Сначала откройте страницу Одноклассников");
+            return;
+        }
+        pickMode = on;
+        ImageViewCompat.setImageTintList(btnRec, ColorStateList.valueOf(on ? U.primary(this) : U.onSurface(this)));
+        web.evaluateJavascript("window.__klass&&window.__klass.pickMode(" + on + ")", null);
+        updateHint();
+        updateStatus();
+    }
+
+    private void updateHint() {
+        if (pickMode) {
+            hintPill.setText("Запись: нажмите на анимацию — она выделится, нажмите ещё раз — запишу");
+            hintPill.setVisibility(View.VISIBLE);
+        } else {
+            hintPill.setText("Рамка «скачать» — файл, «записать» — запись с экрана. Нажмите на подарок");
+            hintPill.setVisibility(Prefs.catcherOn(this) ? View.VISIBLE : View.GONE);
         }
     }
 
@@ -463,15 +507,11 @@ public class MainActivity extends AppCompatActivity implements Catcher.Host {
         }
         syncing = false;
         if (hintPill != null) {
-            hintPill.setVisibility(on ? View.VISIBLE : View.GONE);
+            updateHint();
         }
         if (web != null) {
-            if (on) {
-                injectCatcher();
-                web.evaluateJavascript("window.__klass&&window.__klass.setOn(true)", null);
-            } else {
-                web.evaluateJavascript("window.__klass&&window.__klass.setOn(false)", null);
-            }
+            injectCatcher();
+            web.evaluateJavascript("window.__klass&&window.__klass.setOn(" + on + ")", null);
         }
         updateStatus();
     }
@@ -481,7 +521,9 @@ public class MainActivity extends AppCompatActivity implements Catcher.Host {
             return;
         }
         boolean on = Prefs.catcherOn(this);
-        if (!on) {
+        if (pickMode) {
+            statusLine.setText("Режим записи — выберите анимацию на странице");
+        } else if (!on) {
             statusLine.setText("Ловец выключен — сайт работает как обычно");
         } else if (!okPage) {
             statusLine.setText("Ловец включён — откройте страницу Одноклассников");
@@ -515,6 +557,75 @@ public class MainActivity extends AppCompatActivity implements Catcher.Host {
             @Override
             public void run() {
                 statusLine.setText(msg);
+            }
+        });
+    }
+
+    @Override
+    public void pickModeOff() {
+        main.post(new Runnable() {
+            @Override
+            public void run() {
+                pickMode = false;
+                ImageViewCompat.setImageTintList(btnRec, ColorStateList.valueOf(U.onSurface(MainActivity.this)));
+                updateHint();
+            }
+        });
+    }
+
+    @Override
+    public void startRecord(final double l, final double t, final double w, final double h, final double dpr) {
+        main.post(new Runnable() {
+            @Override
+            public void run() {
+                if (recording) {
+                    return;
+                }
+                recording = true;
+                hintPill.setVisibility(View.INVISIBLE);
+                int ms = Prefs.recMs(MainActivity.this);
+                statusLine.setText("Записываю анимацию " + (ms / 1000) + " с — не трогайте экран…");
+                Recorder.start(MainActivity.this, web, (int) Math.round(l * dpr), (int) Math.round(t * dpr),
+                        (int) Math.round(w * dpr), (int) Math.round(h * dpr), ms, new Recorder.Done() {
+                            @Override
+                            public void done(List<android.graphics.Bitmap> frames, List<Integer> delays, String err) {
+                                finishRecording(frames, delays, err);
+                            }
+                        });
+            }
+        });
+    }
+
+    private void finishRecording(final List<android.graphics.Bitmap> frames, final List<Integer> delays,
+                                 String err) {
+        recording = false;
+        web.evaluateJavascript("window.__klass&&window.__klass.recordDone()", null);
+        updateHint();
+        if (frames == null) {
+            Diag.log("Запись: " + err);
+            statusLine.setText(err);
+            U.toastLong(this, err);
+            return;
+        }
+        statusLine.setText("Обрабатываю запись…");
+        io.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    LoopCut.Result r = LoopCut.cut(frames, delays);
+                    if (Prefs.recBg(MainActivity.this)) {
+                        Matte.apply(r.frames);
+                    }
+                    byte[] gif = Converter.framesToGif(r.frames, r.delays);
+                    boolean[] isNew = new boolean[1];
+                    GiftStore.Gift g = GiftStore.add(MainActivity.this, gif, isNew);
+                    Diag.log("Запись сохранена: " + r.frames.size() + " кадров, " + (gif.length / 1024) + " КБ");
+                    saved(g, isNew[0], "");
+                } catch (IOException e) {
+                    failed(e.getMessage() == null ? "Не получилось сохранить запись" : e.getMessage(), "");
+                } catch (OutOfMemoryError e) {
+                    failed("Запись слишком большая для телефона — уменьшите длительность", "");
+                }
             }
         });
     }
@@ -1073,6 +1184,35 @@ public class MainActivity extends AppCompatActivity implements Catcher.Host {
                 if (!syncing) {
                     setCatcher(on);
                 }
+            }
+        });
+        MaterialSwitch swRecBg = findViewById(R.id.swRecBg);
+        swRecBg.setChecked(Prefs.recBg(this));
+        swRecBg.setOnCheckedChangeListener(new android.widget.CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(android.widget.CompoundButton b, boolean on) {
+                Prefs.setRecBg(MainActivity.this, on);
+            }
+        });
+        final MaterialButton btnRecMs = findViewById(R.id.btnRecMs);
+        btnRecMs.setText("Длительность записи: " + (Prefs.recMs(this) / 1000) + " с");
+        btnRecMs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final int[] secs = {2, 3, 4, 6, 8, 10};
+                String[] labels = new String[secs.length];
+                for (int i = 0; i < secs.length; i++) {
+                    labels[i] = secs[i] + " с";
+                }
+                new MaterialAlertDialogBuilder(MainActivity.this)
+                        .setTitle("Сколько секунд записывать")
+                        .setItems(labels, new android.content.DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(android.content.DialogInterface d, int which) {
+                                Prefs.setRecMs(MainActivity.this, secs[which] * 1000);
+                                btnRecMs.setText("Длительность записи: " + secs[which] + " с");
+                            }
+                        }).show();
             }
         });
         swBg.setChecked(Prefs.keepBg(this));
