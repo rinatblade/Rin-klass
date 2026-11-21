@@ -28,8 +28,10 @@ final class StickerMaker {
         if (info.frames < 1) {
             throw new IOException("В GIF нет кадров");
         }
-        int[] quality = {82, 70, 58, 46, 36, 28, 20, 14};
-        int[] step = {1, 1, 1, 2, 2, 3, 3, 4};
+        // Сначала снижаем качество картинки, кадры не трогаем - так анимация остаётся плавной.
+        // Кадры прореживаем только если иначе никак не влезть в 500 КБ.
+        int[] quality = {80, 68, 56, 46, 38, 30, 24, 18, 14, 30, 22, 16, 20, 14};
+        int[] step = {1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 3, 3};
         byte[] last = null;
         for (int i = 0; i < quality.length; i++) {
             last = pass(gif, quality[i], step[i]);

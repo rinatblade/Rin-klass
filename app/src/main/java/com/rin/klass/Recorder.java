@@ -23,9 +23,9 @@ final class Recorder {
         void done(List<Bitmap> frames, List<Integer> delays, String error);
     }
 
-    private static final int INTERVAL = 70;
-    private static final int MAX_FRAMES = 110;
-    private static final int MAX_SIDE = 480;
+    private static final int INTERVAL = 33;
+    private static final int MAX_FRAMES = 150;
+    private static final int MAX_SIDE = 420;
 
     private final Activity act;
     private final Rect src;
@@ -127,7 +127,7 @@ final class Recorder {
         int n = frames.size();
         int[] d = new int[n - 1];
         for (int i = 0; i < n - 1; i++) {
-            d[i] = (int) Math.max(40, Math.min(400, times.get(i + 1) - times.get(i)));
+            d[i] = (int) Math.max(30, Math.min(400, times.get(i + 1) - times.get(i)));
             delays.add(Math.round(d[i] / 10f) * 10);
         }
         int[] sorted = Arrays.copyOf(d, d.length);
