@@ -31,6 +31,7 @@ final class Fetcher {
         int kind;
         boolean animated;
         String error;
+        byte[] head;
     }
 
     static boolean allowedUrl(String url) {
@@ -178,12 +179,14 @@ final class Fetcher {
                         if (!maybe) {
                             r.kind = kind;
                             r.animated = false;
+                            r.head = java.util.Arrays.copyOf(head, 16);
                             return r;
                         }
                     }
                 }
                 byte[] all = bos.toByteArray();
                 Result done = classify(all);
+                done.head = java.util.Arrays.copyOf(all, Math.min(16, all.length));
                 return done;
             } finally {
                 c.disconnect();

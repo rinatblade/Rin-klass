@@ -46,6 +46,7 @@ final class Catcher {
     private final ExecutorService pool = Executors.newFixedThreadPool(3);
     private final ConcurrentHashMap<String, Integer> state = new ConcurrentHashMap<>();
     private final File cacheDir;
+    private volatile int sample = 0;
 
     Catcher(Context c, Host host) {
         this.app = c.getApplicationContext();
@@ -107,6 +108,14 @@ final class Catcher {
                     + Diag.shortUrl(url));
         } else if (r.error != null) {
             Diag.log("Не проверить (" + r.error + "): " + Diag.shortUrl(url));
+        } else if (r.head != null && url.contains("getGift") && sample++ < 40) {
+            StringBuilder hex = new StringBuilder();
+            for (byte b : r.head) {
+                hex.append(String.format("%02x", b & 0xFF));
+            }
+            int len = r.data == null ? -1 : r.data.length;
+            Diag.log("Не анимация: " + Media.label(r.kind) + (len >= 0 ? " " + len + " Б" : "")
+                    + " байты=" + hex + "  " + Diag.shortUrl(url));
         }
         state.put(url, yes ? YES : NO);
         reply(url, yes);

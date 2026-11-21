@@ -8,6 +8,7 @@
   var boxes = new Map();   // элемент -> {div, url, mode}
   var root = null, pending = false, probes = 0, MAXP = 500;
   var pickLayer = null, hl = null, hlEl = null, hidden = false, logged = {}, logCount = 0;
+  var mutTimes = new WeakMap(), animEls = new Map();   // элементы, которые страница анимирует скриптом
 
   function addStyle() {
     var s = document.createElement('style');
@@ -126,6 +127,20 @@
     return false;
   }
 
+  // спрайт-лист: большая картинка, из которой скрипт показывает по одному кадру (SpriteAnimation и т.п.)
+  function spriteLike(el, url) {
+    try {
+      if (/getGift/i.test(url) && /[?&]type=15(&|$)/.test(url)) return true;
+      if (/sprite|anim/i.test(url) && !/\.(gif|webp)(\?|$)/i.test(url)) return true;
+      if (el.tagName === 'IMG') return false;
+      var cs = getComputedStyle(el), w = el.getBoundingClientRect().width;
+      var bs = (cs.backgroundSize || '').split(' ')[0];
+      if (/px$/.test(bs) && parseFloat(bs) >= w * 1.6) return true;
+      if (/%$/.test(bs) && parseFloat(bs) >= 160) return true;
+    } catch (e) {}
+    return false;
+  }
+
   function cssAnimated(el) {
     try {
       var cs = getComputedStyle(el);
@@ -208,13 +223,25 @@
         else { survey(el, r, 'rec'); rec.push([el, r]); }
         continue;
       }
+      if (url && /\/%23|#clip|#mask/i.test(url)) continue;
       if (url && /^(https?:|blob:|data:image)/i.test(url)) {
         var st = state[url];
-        if (st === undefined) { probe(url); continue; }
+        if (st === undefined) { probe(url); }
         if (st === 1) { dl.push([el, r, url]); continue; }
+        if (st === 2 && tg !== 'VIDEO' && sized(r, 56, 900) && spriteLike(el, url)) {
+          survey(el, r, 'rec-sprite'); rec.push([el, r]); continue;
+        }
+        if (st === undefined) continue;
       }
       if (tg !== 'IMG' && cssAnimated(el) && sized(r, 56, 900)) { survey(el, r, 'rec'); rec.push([el, r]); }
     }
+
+    var nowT = Date.now();
+    animEls.forEach(function (t, el) {
+      if (nowT - t > 6000 || !el.isConnected) { animEls.delete(el); return; }
+      var r = el.getBoundingClientRect();
+      if (sized(r, 56, 900)) { survey(el, r, 'rec-js'); rec.push([el, r]); }
+    });
 
     var seen = new Set(), placed = [], count = 0;
     function place(el, r, url, mode) {
@@ -334,8 +361,26 @@
   window.addEventListener('scroll', schedule, true);
   window.addEventListener('resize', schedule);
   window.addEventListener('load', schedule);
+  function ours(n) {
+    return n && n.closest && n.closest('#klass-root,#klass-pick,#klass-hl');
+  }
   try {
-    new MutationObserver(schedule).observe(document.documentElement,
+    new MutationObserver(function (recs) {
+      var relevant = false, now = Date.now();
+      for (var i = 0; i < recs.length; i++) {
+        var m = recs[i], t = m.target;
+        if (!t || t.nodeType !== 1 || ours(t)) continue;
+        relevant = true;
+        if (m.type === 'attributes' && m.attributeName === 'style') {
+          var arr = mutTimes.get(t) || [];
+          arr.push(now);
+          while (arr.length && now - arr[0] > 1500) arr.shift();
+          mutTimes.set(t, arr);
+          if (arr.length >= 5) animEls.set(t, now);
+        }
+      }
+      if (relevant) schedule();
+    }).observe(document.documentElement,
       { childList: true, subtree: true, attributes: true, attributeFilter: ['src', 'srcset', 'style', 'class'] });
   } catch (e) {}
   setInterval(schedule, 1500);
